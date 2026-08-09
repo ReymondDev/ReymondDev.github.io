@@ -26,8 +26,9 @@
     </script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Three.js for 3D Globe -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-        /* Matrix Canvas Canvas Styling */
         #matrix-canvas {
             position: fixed;
             top: 0;
@@ -38,7 +39,6 @@
             opacity: 0.22;
             pointer-events: none;
         }
-        /* Custom Red Glassmorphism Cards */
         .cyber-card {
             background: rgba(13, 7, 10, 0.85);
             backdrop-filter: blur(12px);
@@ -49,15 +49,11 @@
             border-color: rgba(239, 68, 68, 0.5);
             box-shadow: 0 0 25px rgba(239, 68, 68, 0.2);
         }
-
-        /* SVG Circular Skill Progress Ring */
         .progress-ring__circle {
             transition: stroke-dashoffset 0.5s ease-in-out;
             transform: rotate(-90deg);
             transform-origin: 50% 50%;
         }
-
-        /* Entry Lock Gate Overlay */
         #cyber-gate {
             transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out, transform 0.8s ease-in-out;
         }
@@ -67,34 +63,28 @@
             transform: scale(1.05);
             pointer-events: none;
         }
+        #globe-container canvas {
+            outline: none;
+        }
     </style>
 </head>
 <body class="bg-cyber-black text-slate-200 font-sans antialiased leading-relaxed min-h-screen relative overflow-x-hidden">
 
     <!-- 🔒 CYBERSECURITY ENTRY LOCK GATE OVERLAY -->
     <div id="cyber-gate" class="fixed inset-0 z-[100] bg-cyber-black flex flex-col items-center justify-center p-6 text-center">
-        <!-- Matrix Rain Background inside Gate -->
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,68,68,0.15)_0%,transparent_70%)] pointer-events-none"></div>
-        
         <div class="relative z-10 max-w-md w-full cyber-card p-8 rounded-3xl border border-red-900/50 shadow-2xl shadow-red-950/80 flex flex-col items-center">
-            
-            <!-- Glowing Padlock Icon -->
             <div id="lock-icon-bg" class="w-20 h-20 rounded-2xl bg-red-950/60 border border-red-500/30 flex items-center justify-center text-cyber-red text-3xl mb-6 transition-all duration-500 shadow-lg shadow-red-600/20">
                 <i id="lock-icon" class="fas fa-lock"></i>
             </div>
-
-            <!-- Header & Subtitle -->
             <h2 class="text-xs font-mono tracking-widest text-cyber-red uppercase mb-2">Security Clearance Required</h2>
             <h1 class="text-2xl font-extrabold text-white mb-2 tracking-tight">Reymond.Dev Protocol</h1>
             <p id="gate-status" class="text-xs font-mono text-slate-400 mb-8 h-6 flex items-center justify-center">
                 [STATUS: ACCESS RESTRICTED]
             </p>
-
-            <!-- Interactive Unlock Button -->
             <button id="unlock-btn" onclick="unlockSystem()" class="w-full py-3.5 bg-cyber-crimson hover:bg-red-500 text-white font-mono font-bold text-sm tracking-wider uppercase rounded-xl transition-all duration-300 shadow-lg shadow-red-600/30 hover:shadow-red-600/50 flex items-center justify-center gap-2">
                 <i class="fas fa-key"></i> Authenticate & Enter
             </button>
-            
             <p class="text-[10px] font-mono text-slate-500 mt-6 uppercase tracking-wider">
                 Threat Intelligence & Risk Portfolio // UK SOC
             </p>
@@ -111,6 +101,7 @@
             <div class="space-x-6 text-sm font-medium hidden md:block">
                 <a href="#about" class="hover:text-cyber-red transition">About</a>
                 <a href="#portfolio" class="hover:text-cyber-red transition">Portfolio</a>
+                <a href="#experience" class="hover:text-cyber-red transition">Operations</a>
                 <a href="#skills" class="hover:text-cyber-red transition">Skills</a>
                 <a href="#contact" class="px-4 py-2 bg-cyber-red text-slate-950 font-bold rounded-lg hover:bg-red-500 transition shadow-lg shadow-red-600/30">Contact</a>
             </div>
@@ -149,7 +140,6 @@
         <p class="text-slate-400 mb-12">Hands-on SIEM implementations and enterprise GRC risk assessments.</p>
 
         <div class="grid md:grid-cols-2 gap-8">
-            
             <!-- Project 1: SOC Home Lab -->
             <div class="cyber-card rounded-2xl p-6 transition-all flex flex-col justify-between">
                 <div>
@@ -194,18 +184,79 @@
                     View Risk Assessment Repo <i class="fas fa-arrow-right text-xs"></i>
                 </a>
             </div>
+        </div>
+    </section>
 
+    <!-- 🌐 3D GLOBE OPERATIONS NETWORK SECTION -->
+    <section id="experience" class="py-20 px-6 max-w-6xl mx-auto border-t border-red-950/80">
+        <p class="text-xs font-mono tracking-widest text-cyber-red uppercase mb-1">Professional Operations Network</p>
+        <h2 class="text-4xl font-extrabold text-white mb-2">Operations & <span class="text-cyber-red">Compliance Impact</span></h2>
+        <p class="text-slate-400 mb-10">Real-world experience managing data security protocols, contract compliance, and cross-border workflow governance.</p>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- 3D Interactive Globe Container -->
+            <div class="lg:col-span-7 cyber-card p-6 rounded-3xl border border-red-950 flex flex-col items-center justify-center relative overflow-hidden min-h-[420px]">
+                <div class="absolute top-4 left-4 z-10 font-mono text-xs text-slate-400">
+                    <span class="text-cyber-red font-bold">LIVE TELEMETRY:</span> Operations Nodes
+                </div>
+                <div id="globe-container" class="w-full h-[360px] flex items-center justify-center cursor-grab active:cursor-grabbing"></div>
+                <div class="absolute bottom-4 right-4 z-10 flex items-center gap-4 text-[10px] font-mono text-slate-400">
+                    <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-cyber-red"></span> Cox Automotive UK Node</span>
+                    <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-400"></span> Global Affiliates</span>
+                </div>
+            </div>
+
+            <!-- Operations Experience Timeline -->
+            <div class="lg:col-span-5 space-y-4">
+                
+                <!-- Role 1: Cox Automotive -->
+                <div class="cyber-card p-5 rounded-2xl border border-red-950">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-base">Operations Assistant</h3>
+                            <p class="text-xs text-cyber-red font-mono">Cox Automotive Europe · Full-time</p>
+                        </div>
+                        <span class="text-[10px] font-mono text-slate-400 bg-red-950/60 px-2 py-0.5 rounded border border-red-900/50">Sep 2024 – Present</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                        Wyton, UK. Managed day-to-day data entry and administrative operations, ensuring strict adherence to data privacy and security protocols across national accounts.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-[10px] bg-slate-900 text-slate-300 font-mono px-2 py-0.5 rounded">Contract Compliance</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 font-mono px-2 py-0.5 rounded">KPI Governance</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 font-mono px-2 py-0.5 rounded">Data Security</span>
+                    </div>
+                </div>
+
+                <!-- Role 2: Freelance Translator -->
+                <div class="cyber-card p-5 rounded-2xl border border-red-950">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-white text-base">Freelance Language & Localization</h3>
+                            <p class="text-xs text-rose-400 font-mono">AaGlobal & Inferna Limited</p>
+                        </div>
+                        <span class="text-[10px] font-mono text-slate-400 bg-red-950/60 px-2 py-0.5 rounded border border-red-900/50">2020 – 2025</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-3">
+                        UK & Remote (Germany). Delivered confidential legal, corporate, and software translation across English, Romanian, and Hungarian.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-[10px] bg-slate-900 text-slate-300 font-mono px-2 py-0.5 rounded">Confidentiality</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-300 font-mono px-2 py-0.5 rounded">Multi-Lingual Compliance</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
     <!-- Circular Technical Skills Section -->
-    <section id="skills" class="py-20 px-6 max-w-6xl mx-auto">
+    <section id="skills" class="py-20 px-6 max-w-6xl mx-auto border-t border-red-950/80">
         <p class="text-xs font-mono tracking-widest text-cyber-red uppercase mb-1">Arsenal</p>
         <h2 class="text-4xl font-extrabold text-white mb-12">Technical <span class="text-cyber-red">Capabilities</span></h2>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            
-            <!-- Skill Circle 1 -->
             <div class="cyber-card p-6 rounded-2xl text-center flex flex-col items-center">
                 <div class="relative w-28 h-28 flex items-center justify-center mb-4">
                     <svg class="w-full h-full" viewBox="0 0 100 100">
@@ -218,7 +269,6 @@
                 <p class="text-xs text-slate-400">Wazuh · Sysmon · Splunk</p>
             </div>
 
-            <!-- Skill Circle 2 -->
             <div class="cyber-card p-6 rounded-2xl text-center flex flex-col items-center">
                 <div class="relative w-28 h-28 flex items-center justify-center mb-4">
                     <svg class="w-full h-full" viewBox="0 0 100 100">
@@ -231,7 +281,6 @@
                 <p class="text-xs text-slate-400">Risk Scoring · UK GDPR</p>
             </div>
 
-            <!-- Skill Circle 3 -->
             <div class="cyber-card p-6 rounded-2xl text-center flex flex-col items-center">
                 <div class="relative w-28 h-28 flex items-center justify-center mb-4">
                     <svg class="w-full h-full" viewBox="0 0 100 100">
@@ -244,7 +293,6 @@
                 <p class="text-xs text-slate-400">Sigma Rules · ATT&CK</p>
             </div>
 
-            <!-- Skill Circle 4 -->
             <div class="cyber-card p-6 rounded-2xl text-center flex flex-col items-center">
                 <div class="relative w-28 h-28 flex items-center justify-center mb-4">
                     <svg class="w-full h-full" viewBox="0 0 100 100">
@@ -256,7 +304,6 @@
                 <h3 class="font-bold text-white text-base mb-1">Threat Simulation</h3>
                 <p class="text-xs text-slate-400">Atomic Red Team · Wireshark</p>
             </div>
-
         </div>
     </section>
 
@@ -266,8 +313,6 @@
         <h2 class="text-4xl font-extrabold text-white mb-10">Get in <span class="text-cyber-red">Touch</span></h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <!-- Email -->
             <a href="mailto:xadrenaline602@gmail.com" class="cyber-card p-6 rounded-2xl border border-red-950 flex items-center gap-4 transition group">
                 <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-cyber-red text-xl group-hover:scale-110 transition">
                     <i class="fas fa-envelope"></i>
@@ -278,7 +323,6 @@
                 </div>
             </a>
 
-            <!-- GitHub -->
             <a href="https://github.com/ReymondDev" target="_blank" class="cyber-card p-6 rounded-2xl border border-red-950 flex items-center gap-4 transition group">
                 <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-cyber-red text-xl group-hover:scale-110 transition">
                     <i class="fab fa-github"></i>
@@ -289,7 +333,6 @@
                 </div>
             </a>
 
-            <!-- Location -->
             <div class="cyber-card p-6 rounded-2xl border border-red-950 flex items-center gap-4">
                 <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-cyber-red text-xl">
                     <i class="fas fa-location-dot"></i>
@@ -300,7 +343,6 @@
                 </div>
             </div>
 
-            <!-- Languages -->
             <div class="cyber-card p-6 rounded-2xl border border-red-950 flex items-center gap-4">
                 <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-cyber-red text-xl">
                     <i class="fas fa-globe"></i>
@@ -310,7 +352,6 @@
                     <p class="text-slate-100 font-bold">English · Romanian · Hungarian</p>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -319,8 +360,9 @@
         © 2026 <span class="text-cyber-red">Reymond</span> · Cyber Security Analyst & Risk Specialist
     </footer>
 
-    <!-- Animated Red Matrix Rain Script -->
+    <!-- Animated Matrix Rain & 3D Globe Script -->
     <script>
+        // Matrix Rain Setup
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -355,7 +397,7 @@
         }
         setInterval(drawMatrix, 35);
 
-        // 🔓 UNLOCK SYSTEM SCRIPT
+        // Unlock System Script
         function unlockSystem() {
             const icon = document.getElementById('lock-icon');
             const iconBg = document.getElementById('lock-icon-bg');
@@ -363,20 +405,119 @@
             const btn = document.getElementById('unlock-btn');
             const gate = document.getElementById('cyber-gate');
 
-            // 1. Change Icon & Colors
             icon.className = 'fas fa-unlock';
             iconBg.className = 'w-20 h-20 rounded-2xl bg-emerald-950/60 border border-emerald-500/50 flex items-center justify-center text-emerald-400 text-3xl mb-6 transition-all duration-500 shadow-xl shadow-emerald-500/30 scale-110';
             
-            // 2. Terminal Text Simulation
             status.innerHTML = '<span class="text-emerald-400 font-mono animate-pulse">[AUTHENTICATING... ACCESS GRANTED]</span>';
             btn.className = 'w-full py-3.5 bg-emerald-500 text-slate-950 font-mono font-bold text-sm tracking-wider uppercase rounded-xl pointer-events-none';
             btn.innerHTML = '<i class="fas fa-check-circle"></i> Clearance Confirmed';
 
-            // 3. Fade Out Gate Curtain
             setTimeout(() => {
                 gate.classList.add('unlocked');
             }, 700);
         }
+
+        // 🌐 3D GLOBE THREE.JS RENDERER
+        function init3DGlobe() {
+            const container = document.getElementById('globe-container');
+            if (!container) return;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.z = 220;
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+
+            // Sphere Wireframe
+            const geometry = new THREE.SphereGeometry(70, 36, 36);
+            const material = new THREE.MeshBasicMaterial({
+                color: 0x2a1218,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.55
+            });
+            const globe = new THREE.Mesh(geometry, material);
+            scene.add(globe);
+
+            // Particles Outer Halo
+            const particleGeo = new THREE.BufferGeometry();
+            const particleCount = 200;
+            const posArray = new Float32Array(particleCount * 3);
+
+            for (let i = 0; i < particleCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 220;
+            }
+            particleGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const particleMat = new THREE.PointsMaterial({
+                size: 1.5,
+                color: 0xef4444,
+                transparent: true,
+                opacity: 0.6
+            });
+            const particles = new THREE.Points(particleGeo, particleMat);
+            scene.add(particles);
+
+            // Helper to convert Lat/Long to 3D Coordinates
+            function latLongToVector3(lat, lon, radius) {
+                const phi = (90 - lat) * (Math.PI / 180);
+                const theta = (lon + 180) * (Math.PI / 180);
+                const x = -(radius * Math.sin(phi) * Math.cos(theta));
+                const z = (radius * Math.sin(phi) * Math.sin(theta));
+                const y = (radius * Math.cos(phi));
+                return new THREE.Vector3(x, y, z);
+            }
+
+            // Key Operations Nodes (UK, Atlanta HQ, Germany)
+            const nodes = [
+                { name: "Cox UK / Wyton", lat: 52.33, lon: -0.12, color: 0xef4444 }, // UK Node
+                { name: "Atlanta HQ", lat: 33.74, lon: -84.38, color: 0xf43f5e },  // Atlanta
+                { name: "Germany Node", lat: 51.16, lon: 10.45, color: 0xf43f5e }    // Germany
+            ];
+
+            const nodeGroup = new THREE.Group();
+            nodes.forEach(node => {
+                const pos = latLongToVector3(node.lat, node.lon, 70);
+                const dotGeo = new THREE.SphereGeometry(2, 16, 16);
+                const dotMat = new THREE.MeshBasicMaterial({ color: node.color });
+                const dot = new THREE.Mesh(dotGeo, dotMat);
+                dot.position.copy(pos);
+                nodeGroup.add(dot);
+            });
+            globe.add(nodeGroup);
+
+            // Connecting Glowing Arc (UK -> Atlanta)
+            const start = latLongToVector3(52.33, -0.12, 70);
+            const end = latLongToVector3(33.74, -84.38, 70);
+            const mid = start.clone().add(end).multiplyScalar(0.5).normalize().multiplyScalar(95);
+
+            const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
+            const points = curve.getPoints(50);
+            const arcGeo = new THREE.BufferGeometry().setFromPoints(points);
+            const arcMat = new THREE.LineBasicMaterial({ color: 0xef4444, linewidth: 2, transparent: true, opacity: 0.8 });
+            const arcLine = new THREE.Line(arcGeo, arcMat);
+            globe.add(arcLine);
+
+            // Animation Loop
+            function animateGlobe() {
+                requestAnimationFrame(animateGlobe);
+                globe.rotation.y += 0.003;
+                particles.rotation.y += 0.001;
+                renderer.render(scene, camera);
+            }
+            animateGlobe();
+
+            // Resize listener for container
+            window.addEventListener('resize', () => {
+                if (!container) return;
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+        }
+
+        window.addEventListener('load', init3DGlobe);
     </script>
 </body>
 </html>
