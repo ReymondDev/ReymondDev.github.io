@@ -12,12 +12,12 @@
                 extend: {
                     colors: {
                         cyber: {
-                            black: '#050811',
-                            card: '#0c1322',
-                            border: '#1e293b',
-                            cyan: '#06b6d4',
-                            emerald: '#10b981',
-                            glow: '#00f2fe'
+                            black: '#050305',
+                            card: '#0d070a',
+                            border: '#2a1218',
+                            red: '#ef4444',
+                            crimson: '#dc2626',
+                            glow: '#ff003c'
                         }
                     }
                 }
@@ -27,7 +27,7 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Matrix Canvas Canvas Styling */
+        /* Red Matrix Canvas Canvas Styling */
         #matrix-canvas {
             position: fixed;
             top: 0;
@@ -35,60 +35,67 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.18; /* Subtle background movement */
+            opacity: 0.22; /* Subtle background movement */
             pointer-events: none;
         }
-        /* Custom Glassmorphism Cards */
+        /* Custom Red Glassmorphism Cards */
         .cyber-card {
-            background: rgba(12, 19, 34, 0.85);
+            background: rgba(13, 7, 10, 0.85);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border: 1px solid rgba(239, 68, 68, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
         }
         .cyber-card:hover {
-            border-color: rgba(6, 182, 212, 0.4);
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+            border-color: rgba(239, 68, 68, 0.5);
+            box-shadow: 0 0 25px rgba(239, 68, 68, 0.2);
+        }
+
+        /* SVG Circular Skill Progress Ring */
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.5s ease-in-out;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
         }
     </style>
 </head>
 <body class="bg-cyber-black text-slate-200 font-sans antialiased leading-relaxed min-h-screen relative overflow-x-hidden">
 
-    <!-- Matrix Rain Canvas Background -->
+    <!-- Red Matrix Rain Canvas Background -->
     <canvas id="matrix-canvas"></canvas>
 
     <!-- Header / Nav -->
-    <nav class="fixed top-0 w-full bg-cyber-black/90 backdrop-blur-md border-b border-slate-800/80 z-50">
+    <nav class="fixed top-0 w-full bg-cyber-black/90 backdrop-blur-md border-b border-red-950/80 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-wider text-cyber-cyan font-mono">&lt;Reymond.Dev /&gt;</a>
+            <a href="#" class="text-xl font-bold tracking-wider text-cyber-red font-mono">&lt;Reymond.Dev /&gt;</a>
             <div class="space-x-6 text-sm font-medium hidden md:block">
-                <a href="#about" class="hover:text-cyber-cyan transition">About</a>
-                <a href="#portfolio" class="hover:text-cyber-cyan transition">Portfolio</a>
-                <a href="#skills" class="hover:text-cyber-cyan transition">Skills</a>
-                <a href="#contact" class="px-4 py-2 bg-cyber-cyan text-slate-950 font-bold rounded-lg hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/20">Contact</a>
+                <a href="#about" class="hover:text-cyber-red transition">About</a>
+                <a href="#portfolio" class="hover:text-cyber-red transition">Portfolio</a>
+                <a href="#skills" class="hover:text-cyber-red transition">Skills</a>
+                <a href="#contact" class="px-4 py-2 bg-cyber-red text-slate-950 font-bold rounded-lg hover:bg-red-500 transition shadow-lg shadow-red-600/30">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="about" class="pt-36 pb-20 px-6 max-w-6xl mx-auto flex flex-col items-start justify-center">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyber-cyan text-xs font-mono mb-6">
-            <span class="w-2 h-2 rounded-full bg-cyber-cyan animate-pulse"></span> Open to Junior SOC / Cyber Risk / GRC Roles (UK)
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-cyber-red text-xs font-mono mb-6">
+            <span class="w-2 h-2 rounded-full bg-cyber-red animate-pulse"></span> Open to Junior SOC / Cyber Risk / GRC Roles (UK)
         </div>
         <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
-            Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-cyan to-cyber-emerald">Reymond</span>.
+            Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-red to-rose-400">Reymond</span>.
         </h1>
         <p class="text-lg md:text-xl text-slate-400 max-w-3xl mb-8">
             <b class="text-slate-200">Cyber Security & Risk Specialist</b> · First-Class BSc (Hons) Web Development & Cybersecurity · MBA 2026.<br>
             I bridge the gap between technical threat hunting and executive-level risk compliance.
         </p>
         <div class="flex flex-wrap gap-4">
-            <a href="https://github.com/ReymondDev" target="_blank" class="px-6 py-3 bg-slate-900/90 border border-slate-800 rounded-xl font-medium hover:border-cyber-cyan hover:text-cyber-cyan transition flex items-center gap-2">
+            <a href="https://github.com/ReymondDev" target="_blank" class="px-6 py-3 bg-slate-950 border border-red-950 rounded-xl font-medium hover:border-cyber-red hover:text-cyber-red transition flex items-center gap-2">
                 <i class="fab fa-github"></i> GitHub Profile
             </a>
-            <a href="https://linkedin.com/in/reymond-guntner-674872204" target="_blank" class="px-6 py-3 bg-cyan-600 text-white rounded-xl font-semibold hover:bg-cyan-500 transition flex items-center gap-2 shadow-lg shadow-cyan-600/20">
+            <a href="https://linkedin.com/in/reymond-guntner-674872204" target="_blank" class="px-6 py-3 bg-cyber-crimson text-white rounded-xl font-semibold hover:bg-red-600 transition flex items-center gap-2 shadow-lg shadow-red-900/30">
                 <i class="fab fa-linkedin"></i> LinkedIn
             </a>
-            <a href="https://tryhackme.com/p/ReymondDev" target="_blank" class="px-6 py-3 bg-slate-900/90 border border-slate-800 rounded-xl font-medium hover:border-cyber-cyan hover:text-cyber-cyan transition flex items-center gap-2">
+            <a href="https://tryhackme.com/p/ReymondDev" target="_blank" class="px-6 py-3 bg-slate-950 border border-red-950 rounded-xl font-medium hover:border-cyber-red hover:text-cyber-red transition flex items-center gap-2">
                 <i class="fas fa-flag"></i> TryHackMe
             </a>
         </div>
@@ -96,7 +103,7 @@
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="py-20 px-6 max-w-6xl mx-auto">
-        <p class="text-xs font-mono tracking-widest text-cyber-cyan uppercase mb-1">Portfolio</p>
+        <p class="text-xs font-mono tracking-widest text-cyber-red uppercase mb-1">Portfolio</p>
         <h2 class="text-3xl font-extrabold text-white mb-2">Featured Work</h2>
         <p class="text-slate-400 mb-12">Hands-on SIEM implementations and enterprise GRC risk assessments.</p>
 
@@ -106,21 +113,21 @@
             <div class="cyber-card rounded-2xl p-6 transition-all flex flex-col justify-between">
                 <div>
                     <div class="flex justify-between items-center mb-4">
-                        <span class="text-xs font-mono px-2.5 py-1 bg-cyan-500/10 text-cyber-cyan rounded-md border border-cyan-500/20">SIEM & Detection</span>
-                        <span class="text-xs text-slate-400"><i class="fas fa-check-circle text-cyber-emerald"></i> Completed</span>
+                        <span class="text-xs font-mono px-2.5 py-1 bg-red-500/10 text-cyber-red rounded-md border border-red-500/20">SIEM & Detection</span>
+                        <span class="text-xs text-slate-400"><i class="fas fa-check-circle text-cyber-red"></i> Completed</span>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">SOC Home Lab & Detection Engineering</h3>
                     <p class="text-slate-400 text-sm mb-6">
                         Deployed Wazuh SIEM OVA and Sysmon telemetry on a Windows endpoint. Executed Atomic Red Team simulations (T1059, T1087, T1518) and engineered custom XML and Sigma detection rules.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="text-xs bg-slate-800/80 px-2.5 py-1 rounded text-slate-300 font-mono border border-slate-700/50">Wazuh</span>
-                        <span class="text-xs bg-slate-800/80 px-2.5 py-1 rounded text-slate-300 font-mono border border-slate-700/50">Sysmon</span>
-                        <span class="text-xs bg-slate-800/80 px-2.5 py-1 rounded text-slate-300 font-mono border border-slate-700/50">Atomic Red Team</span>
-                        <span class="text-xs bg-slate-800/80 px-2.5 py-1 rounded text-slate-300 font-mono border border-slate-700/50">Sigma</span>
+                        <span class="text-xs bg-red-950/40 px-2.5 py-1 rounded text-slate-300 font-mono border border-red-900/50">Wazuh</span>
+                        <span class="text-xs bg-red-950/40 px-2.5 py-1 rounded text-slate-300 font-mono border border-red-900/50">Sysmon</span>
+                        <span class="text-xs bg-red-950/40 px-2.5 py-1 rounded text-slate-300 font-mono border border-red-900/50">Atomic Red Team</span>
+                        <span class="text-xs bg-red-950/40 px-2.5 py-1 rounded text-slate-300 font-mono border border-red-900/50">Sigma</span>
                     </div>
                 </div>
-                <a href="https://github.com/ReymondDev/soc-home-lab" target="_blank" class="inline-flex items-center gap-2 text-cyber-cyan text-sm font-semibold hover:underline">
+                <a href="https://github.com/ReymondDev/soc-home-lab" target="_blank" class="inline-flex items-center gap-2 text-cyber-red text-sm font-semibold hover:underline">
                     View Full Repository & Logs <i class="fas fa-arrow-right text-xs"></i>
                 </a>
             </div>
@@ -129,20 +136,20 @@
             <div class="cyber-card rounded-2xl p-6 transition-all flex flex-col justify-between">
                 <div>
                     <div class="flex justify-between items-center mb-4">
-                        <span class="text-xs font-mono px-2.5 py-1 bg-emerald-500/10 text-cyber-emerald rounded-md border border-emerald-500/20">GRC & Risk Management</span>
-                        <span class="text-xs text-slate-400"><i class="fas fa-check-circle text-cyber-emerald"></i> Completed</span>
+                        <span class="text-xs font-mono px-2.5 py-1 bg-red-500/10 text-cyber-red rounded-md border border-red-500/20">GRC & Risk Management</span>
+                        <span class="text-xs text-slate-400"><i class="fas fa-check-circle text-cyber-red"></i> Completed</span>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">ISO 27001:2022 Risk Assessment — Meridian Logistics</h3>
                     <p class="text-slate-400 text-sm mb-6">
                         Full Information Security Risk Assessment for a 45-person UK logistics enterprise. Includes scope definition, 15-asset CIA classification inventory, 5x5 risk register, Annex A gap analysis, and board-level summary.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="text-xs bg-slate-800/80 px-2.5 py-1 rounded text-slate-300 font-mono border border-slate-700/50">ISO 27001:2022</span>
-                        <span class="text-xs bg-slate-800/80 px-2.5 py-1 rounded text-slate-300 font-mono border border-slate-700/50">UK GDPR</span>
-                        <span class="text-xs bg-slate-800/80 px-2.5 py-1 rounded text-slate-300 font-mono border border-slate-700/50">Risk Scoring</span>
+                        <span class="text-xs bg-red-950/40 px-2.5 py-1 rounded text-slate-300 font-mono border border-red-900/50">ISO 27001:2022</span>
+                        <span class="text-xs bg-red-950/40 px-2.5 py-1 rounded text-slate-300 font-mono border border-red-900/50">UK GDPR</span>
+                        <span class="text-xs bg-red-950/40 px-2.5 py-1 rounded text-slate-300 font-mono border border-red-900/50">Risk Scoring</span>
                     </div>
                 </div>
-                <a href="https://github.com/ReymondDev/iso27001-risk-assessment" target="_blank" class="inline-flex items-center gap-2 text-cyber-emerald text-sm font-semibold hover:underline">
+                <a href="https://github.com/ReymondDev/iso27001-risk-assessment" target="_blank" class="inline-flex items-center gap-2 text-cyber-red text-sm font-semibold hover:underline">
                     View Risk Assessment Repo <i class="fas fa-arrow-right text-xs"></i>
                 </a>
             </div>
@@ -150,96 +157,100 @@
         </div>
     </section>
 
-    <!-- Technical Skills Section (Custom Grid matching your screenshot) -->
+    <!-- Circular Technical Skills Section -->
     <section id="skills" class="py-20 px-6 max-w-6xl mx-auto">
-        <p class="text-xs font-mono tracking-widest text-cyber-cyan uppercase mb-1">Arsenal</p>
-        <h2 class="text-4xl font-extrabold text-white mb-10">Technical <span class="text-cyber-cyan">Skills</span></h2>
+        <p class="text-xs font-mono tracking-widest text-cyber-red uppercase mb-1">Arsenal</p>
+        <h2 class="text-4xl font-extrabold text-white mb-12">Technical <span class="text-cyber-red">Capabilities</span></h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
             
-            <!-- Security Ops -->
-            <div class="cyber-card p-6 rounded-2xl border border-slate-800">
-                <h3 class="text-xs font-mono font-bold text-cyber-cyan tracking-wider uppercase mb-6 pb-2 border-b border-slate-800">Security Ops</h3>
-                <ul class="space-y-3 text-sm">
-                    <li class="flex items-center gap-2 text-slate-200 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan"></span> Security Operations</li>
-                    <li class="flex items-center gap-2 text-slate-200 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan"></span> Alert Triage</li>
-                    <li class="flex items-center gap-2 text-slate-400"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span> Incident Response</li>
-                    <li class="flex items-center gap-2 text-slate-400"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span> Threat Intelligence</li>
-                    <li class="flex items-center gap-2 text-slate-400"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span> Vulnerability Management</li>
-                </ul>
+            <!-- Skill Circle 1: Security Ops -->
+            <div class="cyber-card p-6 rounded-2xl text-center flex flex-col items-center">
+                <div class="relative w-28 h-28 flex items-center justify-center mb-4">
+                    <svg class="w-full h-full" viewBox="0 0 100 100">
+                        <circle class="text-slate-800" stroke-width="8" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50"/>
+                        <circle class="text-cyber-red progress-ring__circle" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="30" stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50"/>
+                    </svg>
+                    <span class="absolute font-mono text-lg font-bold text-white">90%</span>
+                </div>
+                <h3 class="font-bold text-white text-base mb-1">SIEM & Alert Triage</h3>
+                <p class="text-xs text-slate-400">Wazuh · Sysmon · Splunk</p>
             </div>
 
-            <!-- Frameworks -->
-            <div class="cyber-card p-6 rounded-2xl border border-slate-800">
-                <h3 class="text-xs font-mono font-bold text-cyber-cyan tracking-wider uppercase mb-6 pb-2 border-b border-slate-800">Frameworks</h3>
-                <ul class="space-y-3 text-sm">
-                    <li class="flex items-center gap-2 text-slate-200 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan"></span> ISO 27001:2022</li>
-                    <li class="flex items-center gap-2 text-slate-200 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan"></span> MITRE ATT&CK</li>
-                    <li class="flex items-center gap-2 text-slate-200 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan"></span> NIST CSF</li>
-                    <li class="flex items-center gap-2 text-slate-200 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan"></span> UK GDPR</li>
-                    <li class="flex items-center gap-2 text-slate-400"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span> Cyber Essentials</li>
-                </ul>
+            <!-- Skill Circle 2: GRC & ISO 27001 -->
+            <div class="cyber-card p-6 rounded-2xl text-center flex flex-col items-center">
+                <div class="relative w-28 h-28 flex items-center justify-center mb-4">
+                    <svg class="w-full h-full" viewBox="0 0 100 100">
+                        <circle class="text-slate-800" stroke-width="8" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50"/>
+                        <circle class="text-cyber-red progress-ring__circle" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="25" stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50"/>
+                    </svg>
+                    <span class="absolute font-mono text-lg font-bold text-white">92%</span>
+                </div>
+                <h3 class="font-bold text-white text-base mb-1">ISO 27001 & GRC</h3>
+                <p class="text-xs text-slate-400">Risk Scoring · UK GDPR</p>
             </div>
 
-            <!-- Infrastructure -->
-            <div class="cyber-card p-6 rounded-2xl border border-slate-800">
-                <h3 class="text-xs font-mono font-bold text-cyber-cyan tracking-wider uppercase mb-6 pb-2 border-b border-slate-800">Infrastructure</h3>
-                <ul class="space-y-3 text-sm">
-                    <li class="flex items-center gap-2 text-slate-200 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan"></span> SIEM (Wazuh / Splunk)</li>
-                    <li class="flex items-center gap-2 text-slate-200 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan"></span> Sysmon Telemetry</li>
-                    <li class="flex items-center gap-2 text-slate-400"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span> Cloud Security (Azure/AWS)</li>
-                    <li class="flex items-center gap-2 text-slate-400"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span> TCP/IP · DNS · HTTP</li>
-                    <li class="flex items-center gap-2 text-slate-400"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span> Linux / Windows CLI</li>
-                </ul>
+            <!-- Skill Circle 3: Detection Engineering -->
+            <div class="cyber-card p-6 rounded-2xl text-center flex flex-col items-center">
+                <div class="relative w-28 h-28 flex items-center justify-center mb-4">
+                    <svg class="w-full h-full" viewBox="0 0 100 100">
+                        <circle class="text-slate-800" stroke-width="8" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50"/>
+                        <circle class="text-cyber-red progress-ring__circle" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="45" stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50"/>
+                    </svg>
+                    <span class="absolute font-mono text-lg font-bold text-white">85%</span>
+                </div>
+                <h3 class="font-bold text-white text-base mb-1">Detection Engineering</h3>
+                <p class="text-xs text-slate-400">Sigma Rules · ATT&CK</p>
             </div>
 
-            <!-- Tooling -->
-            <div class="cyber-card p-6 rounded-2xl border border-slate-800">
-                <h3 class="text-xs font-mono font-bold text-cyber-cyan tracking-wider uppercase mb-6 pb-2 border-b border-slate-800">Tooling</h3>
-                <ul class="space-y-3 text-sm">
-                    <li class="flex items-center gap-2 text-slate-200 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan"></span> Sigma Detection Rules</li>
-                    <li class="flex items-center gap-2 text-slate-200 font-medium"><span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan"></span> Wireshark</li>
-                    <li class="flex items-center gap-2 text-slate-400"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span> Atomic Red Team</li>
-                    <li class="flex items-center gap-2 text-slate-400"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span> Python Automation</li>
-                    <li class="flex items-center gap-2 text-slate-400"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span> Burp Suite / Nmap</li>
-                </ul>
+            <!-- Skill Circle 4: Network & Threat Hunting -->
+            <div class="cyber-card p-6 rounded-2xl text-center flex flex-col items-center">
+                <div class="relative w-28 h-28 flex items-center justify-center mb-4">
+                    <svg class="w-full h-full" viewBox="0 0 100 100">
+                        <circle class="text-slate-800" stroke-width="8" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50"/>
+                        <circle class="text-cyber-red progress-ring__circle" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="40" stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50"/>
+                    </svg>
+                    <span class="absolute font-mono text-lg font-bold text-white">88%</span>
+                </div>
+                <h3 class="font-bold text-white text-base mb-1">Threat Simulation</h3>
+                <p class="text-xs text-slate-400">Atomic Red Team · Wireshark</p>
             </div>
 
         </div>
     </section>
 
-    <!-- Get In Touch Section (Custom 4-card Grid matching your screenshot) -->
-    <section id="contact" class="py-20 px-6 max-w-6xl mx-auto border-t border-slate-800/80">
-        <p class="text-xs font-mono tracking-widest text-cyber-cyan uppercase mb-1">Let's Connect</p>
-        <h2 class="text-4xl font-extrabold text-white mb-10">Get in <span class="text-cyber-cyan">Touch</span></h2>
+    <!-- Get In Touch Section -->
+    <section id="contact" class="py-20 px-6 max-w-6xl mx-auto border-t border-red-950/80">
+        <p class="text-xs font-mono tracking-widest text-cyber-red uppercase mb-1">Let's Connect</p>
+        <h2 class="text-4xl font-extrabold text-white mb-10">Get in <span class="text-cyber-red">Touch</span></h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             <!-- Email -->
-            <a href="mailto:xadrenaline602@gmail.com" class="cyber-card p-6 rounded-2xl border border-slate-800 flex items-center gap-4 transition group">
-                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyber-cyan text-xl group-hover:scale-110 transition">
+            <a href="mailto:xadrenaline602@gmail.com" class="cyber-card p-6 rounded-2xl border border-red-950 flex items-center gap-4 transition group">
+                <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-cyber-red text-xl group-hover:scale-110 transition">
                     <i class="fas fa-envelope"></i>
                 </div>
                 <div>
                     <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">Email</p>
-                    <p class="text-slate-100 font-bold group-hover:text-cyber-cyan transition">xadrenaline602@gmail.com</p>
+                    <p class="text-slate-100 font-bold group-hover:text-cyber-red transition">xadrenaline602@gmail.com</p>
                 </div>
             </a>
 
             <!-- GitHub -->
-            <a href="https://github.com/ReymondDev" target="_blank" class="cyber-card p-6 rounded-2xl border border-slate-800 flex items-center gap-4 transition group">
-                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyber-cyan text-xl group-hover:scale-110 transition">
+            <a href="https://github.com/ReymondDev" target="_blank" class="cyber-card p-6 rounded-2xl border border-red-950 flex items-center gap-4 transition group">
+                <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-cyber-red text-xl group-hover:scale-110 transition">
                     <i class="fab fa-github"></i>
                 </div>
                 <div>
                     <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">GitHub</p>
-                    <p class="text-slate-100 font-bold group-hover:text-cyber-cyan transition">github.com/ReymondDev</p>
+                    <p class="text-slate-100 font-bold group-hover:text-cyber-red transition">github.com/ReymondDev</p>
                 </div>
             </a>
 
             <!-- Location -->
-            <div class="cyber-card p-6 rounded-2xl border border-slate-800 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyber-cyan text-xl">
+            <div class="cyber-card p-6 rounded-2xl border border-red-950 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-cyber-red text-xl">
                     <i class="fas fa-location-dot"></i>
                 </div>
                 <div>
@@ -249,8 +260,8 @@
             </div>
 
             <!-- Languages -->
-            <div class="cyber-card p-6 rounded-2xl border border-slate-800 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyber-cyan text-xl">
+            <div class="cyber-card p-6 rounded-2xl border border-red-950 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-cyber-red text-xl">
                     <i class="fas fa-globe"></i>
                 </div>
                 <div>
@@ -263,11 +274,11 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 text-center text-xs text-slate-500 border-t border-slate-900">
-        © 2026 <span class="text-cyber-cyan">Reymond</span> · Cyber Security Analyst & Risk Specialist
+    <footer class="py-8 text-center text-xs text-slate-500 border-t border-red-950/60">
+        © 2026 <span class="text-cyber-red">Reymond</span> · Cyber Security Analyst & Risk Specialist
     </footer>
 
-    <!-- Animated Matrix Rain Script -->
+    <!-- Animated Red Matrix Rain Script -->
     <script>
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
@@ -279,22 +290,22 @@
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        // Matrix characters (Hex + Cyber Security glyphs)
-        const katakana = '0123456789ABCDEF$#@%&*<>{}[]/\\|+=:-_';
+        // Matrix characters
+        const characters = '0123456789ABCDEF$#@%&*<>{}[]/\\|+=:-_';
         const fontSize = 14;
         const columns = Math.floor(canvas.width / fontSize);
         const drops = Array(columns).fill(1);
 
         function drawMatrix() {
-            // Semi-transparent background for trail effect
-            ctx.fillStyle = 'rgba(5, 8, 17, 0.08)';
+            // Dark background trail effect
+            ctx.fillStyle = 'rgba(5, 3, 5, 0.08)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#06b6d4'; // Cyan Matrix Text
+            ctx.fillStyle = '#ef4444'; // Crimson Red Matrix Text
             ctx.font = fontSize + 'px monospace';
 
             for (let i = 0; i < drops.length; i++) {
-                const text = katakana.charAt(Math.floor(Math.random() * katakana.length));
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
                 if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
