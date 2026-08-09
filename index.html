@@ -27,7 +27,7 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Red Matrix Canvas Canvas Styling */
+        /* Matrix Canvas Canvas Styling */
         #matrix-canvas {
             position: fixed;
             top: 0;
@@ -35,7 +35,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.22; /* Subtle background movement */
+            opacity: 0.22;
             pointer-events: none;
         }
         /* Custom Red Glassmorphism Cards */
@@ -56,11 +56,52 @@
             transform: rotate(-90deg);
             transform-origin: 50% 50%;
         }
+
+        /* Entry Lock Gate Overlay */
+        #cyber-gate {
+            transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out, transform 0.8s ease-in-out;
+        }
+        #cyber-gate.unlocked {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(1.05);
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="bg-cyber-black text-slate-200 font-sans antialiased leading-relaxed min-h-screen relative overflow-x-hidden">
 
-    <!-- Red Matrix Rain Canvas Background -->
+    <!-- 🔒 CYBERSECURITY ENTRY LOCK GATE OVERLAY -->
+    <div id="cyber-gate" class="fixed inset-0 z-[100] bg-cyber-black flex flex-col items-center justify-center p-6 text-center">
+        <!-- Matrix Rain Background inside Gate -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(239,68,68,0.15)_0%,transparent_70%)] pointer-events-none"></div>
+        
+        <div class="relative z-10 max-w-md w-full cyber-card p-8 rounded-3xl border border-red-900/50 shadow-2xl shadow-red-950/80 flex flex-col items-center">
+            
+            <!-- Glowing Padlock Icon -->
+            <div id="lock-icon-bg" class="w-20 h-20 rounded-2xl bg-red-950/60 border border-red-500/30 flex items-center justify-center text-cyber-red text-3xl mb-6 transition-all duration-500 shadow-lg shadow-red-600/20">
+                <i id="lock-icon" class="fas fa-lock"></i>
+            </div>
+
+            <!-- Header & Subtitle -->
+            <h2 class="text-xs font-mono tracking-widest text-cyber-red uppercase mb-2">Security Clearance Required</h2>
+            <h1 class="text-2xl font-extrabold text-white mb-2 tracking-tight">Reymond.Dev Protocol</h1>
+            <p id="gate-status" class="text-xs font-mono text-slate-400 mb-8 h-6 flex items-center justify-center">
+                [STATUS: ACCESS RESTRICTED]
+            </p>
+
+            <!-- Interactive Unlock Button -->
+            <button id="unlock-btn" onclick="unlockSystem()" class="w-full py-3.5 bg-cyber-crimson hover:bg-red-500 text-white font-mono font-bold text-sm tracking-wider uppercase rounded-xl transition-all duration-300 shadow-lg shadow-red-600/30 hover:shadow-red-600/50 flex items-center justify-center gap-2">
+                <i class="fas fa-key"></i> Authenticate & Enter
+            </button>
+            
+            <p class="text-[10px] font-mono text-slate-500 mt-6 uppercase tracking-wider">
+                Threat Intelligence & Risk Portfolio // UK SOC
+            </p>
+        </div>
+    </div>
+
+    <!-- Matrix Rain Canvas Background -->
     <canvas id="matrix-canvas"></canvas>
 
     <!-- Header / Nav -->
@@ -164,7 +205,7 @@
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
             
-            <!-- Skill Circle 1: Security Ops -->
+            <!-- Skill Circle 1 -->
             <div class="cyber-card p-6 rounded-2xl text-center flex flex-col items-center">
                 <div class="relative w-28 h-28 flex items-center justify-center mb-4">
                     <svg class="w-full h-full" viewBox="0 0 100 100">
@@ -177,7 +218,7 @@
                 <p class="text-xs text-slate-400">Wazuh · Sysmon · Splunk</p>
             </div>
 
-            <!-- Skill Circle 2: GRC & ISO 27001 -->
+            <!-- Skill Circle 2 -->
             <div class="cyber-card p-6 rounded-2xl text-center flex flex-col items-center">
                 <div class="relative w-28 h-28 flex items-center justify-center mb-4">
                     <svg class="w-full h-full" viewBox="0 0 100 100">
@@ -190,7 +231,7 @@
                 <p class="text-xs text-slate-400">Risk Scoring · UK GDPR</p>
             </div>
 
-            <!-- Skill Circle 3: Detection Engineering -->
+            <!-- Skill Circle 3 -->
             <div class="cyber-card p-6 rounded-2xl text-center flex flex-col items-center">
                 <div class="relative w-28 h-28 flex items-center justify-center mb-4">
                     <svg class="w-full h-full" viewBox="0 0 100 100">
@@ -203,7 +244,7 @@
                 <p class="text-xs text-slate-400">Sigma Rules · ATT&CK</p>
             </div>
 
-            <!-- Skill Circle 4: Network & Threat Hunting -->
+            <!-- Skill Circle 4 -->
             <div class="cyber-card p-6 rounded-2xl text-center flex flex-col items-center">
                 <div class="relative w-28 h-28 flex items-center justify-center mb-4">
                     <svg class="w-full h-full" viewBox="0 0 100 100">
@@ -290,18 +331,16 @@
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        // Matrix characters
         const characters = '0123456789ABCDEF$#@%&*<>{}[]/\\|+=:-_';
         const fontSize = 14;
         const columns = Math.floor(canvas.width / fontSize);
         const drops = Array(columns).fill(1);
 
         function drawMatrix() {
-            // Dark background trail effect
             ctx.fillStyle = 'rgba(5, 3, 5, 0.08)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#ef4444'; // Crimson Red Matrix Text
+            ctx.fillStyle = '#ef4444';
             ctx.font = fontSize + 'px monospace';
 
             for (let i = 0; i < drops.length; i++) {
@@ -314,8 +353,30 @@
                 drops[i]++;
             }
         }
-
         setInterval(drawMatrix, 35);
+
+        // 🔓 UNLOCK SYSTEM SCRIPT
+        function unlockSystem() {
+            const icon = document.getElementById('lock-icon');
+            const iconBg = document.getElementById('lock-icon-bg');
+            const status = document.getElementById('gate-status');
+            const btn = document.getElementById('unlock-btn');
+            const gate = document.getElementById('cyber-gate');
+
+            // 1. Change Icon & Colors
+            icon.className = 'fas fa-unlock';
+            iconBg.className = 'w-20 h-20 rounded-2xl bg-emerald-950/60 border border-emerald-500/50 flex items-center justify-center text-emerald-400 text-3xl mb-6 transition-all duration-500 shadow-xl shadow-emerald-500/30 scale-110';
+            
+            // 2. Terminal Text Simulation
+            status.innerHTML = '<span class="text-emerald-400 font-mono animate-pulse">[AUTHENTICATING... ACCESS GRANTED]</span>';
+            btn.className = 'w-full py-3.5 bg-emerald-500 text-slate-950 font-mono font-bold text-sm tracking-wider uppercase rounded-xl pointer-events-none';
+            btn.innerHTML = '<i class="fas fa-check-circle"></i> Clearance Confirmed';
+
+            // 3. Fade Out Gate Curtain
+            setTimeout(() => {
+                gate.classList.add('unlocked');
+            }, 700);
+        }
     </script>
 </body>
 </html>
