@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reymond | Cyber Security & Risk Portfolio</title>
+    
+    <!-- 🔒 Favicon: Red Glowing Lock Icon for Browser Tab -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ef4444'><path d='M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z'/></svg>" type="image/svg+xml">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -103,7 +107,7 @@
                 <a href="#portfolio" class="hover:text-cyber-red transition">Portfolio</a>
                 <a href="#experience" class="hover:text-cyber-red transition">Operations</a>
                 <a href="#skills" class="hover:text-cyber-red transition">Skills</a>
-                <a href="#contact" class="px-4 py-2 bg-cyber-red text-slate-950 font-bold rounded-lg hover:bg-red-500 transition shadow-lg shadow-red-600/30">Contact</a>
+                <a href="#agenda" class="px-4 py-2 bg-cyber-red text-slate-950 font-bold rounded-lg hover:bg-red-500 transition shadow-lg shadow-red-600/30">Agenda / Comms</a>
             </div>
         </div>
     </nav>
@@ -187,7 +191,7 @@
         </div>
     </section>
 
-    <!-- 🌐 3D GLOBE OPERATIONS NETWORK SECTION -->
+    <!-- 🌐 3D GLOBE OPERATIONS NETWORK SECTION (WITH REAL CONTINENT MAP DOTS) -->
     <section id="experience" class="py-20 px-6 max-w-6xl mx-auto border-t border-red-950/80">
         <p class="text-xs font-mono tracking-widest text-cyber-red uppercase mb-1">Professional Operations Network</p>
         <h2 class="text-4xl font-extrabold text-white mb-2">Operations & <span class="text-cyber-red">Compliance Impact</span></h2>
@@ -198,19 +202,17 @@
             <!-- 3D Interactive Globe Container -->
             <div class="lg:col-span-7 cyber-card p-6 rounded-3xl border border-red-950 flex flex-col items-center justify-center relative overflow-hidden min-h-[420px]">
                 <div class="absolute top-4 left-4 z-10 font-mono text-xs text-slate-400">
-                    <span class="text-cyber-red font-bold">LIVE TELEMETRY:</span> Operations Nodes
+                    <span class="text-cyber-red font-bold">LIVE TELEMETRY:</span> Operations Nodes & Continents
                 </div>
                 <div id="globe-container" class="w-full h-[360px] flex items-center justify-center cursor-grab active:cursor-grabbing"></div>
                 <div class="absolute bottom-4 right-4 z-10 flex items-center gap-4 text-[10px] font-mono text-slate-400">
-                    <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-cyber-red"></span> Cox Automotive UK Node</span>
-                    <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-400"></span> Global Affiliates</span>
+                    <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-cyber-red animate-ping"></span> Cox UK Node</span>
+                    <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-400"></span> Global Hubs</span>
                 </div>
             </div>
 
             <!-- Operations Experience Timeline -->
             <div class="lg:col-span-5 space-y-4">
-                
-                <!-- Role 1: Cox Automotive -->
                 <div class="cyber-card p-5 rounded-2xl border border-red-950">
                     <div class="flex justify-between items-start mb-2">
                         <div>
@@ -229,7 +231,6 @@
                     </div>
                 </div>
 
-                <!-- Role 2: Freelance Translator -->
                 <div class="cyber-card p-5 rounded-2xl border border-red-950">
                     <div class="flex justify-between items-start mb-2">
                         <div>
@@ -246,7 +247,6 @@
                         <span class="text-[10px] bg-slate-900 text-slate-300 font-mono px-2 py-0.5 rounded">Multi-Lingual Compliance</span>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -307,50 +307,57 @@
         </div>
     </section>
 
-    <!-- Get In Touch Section -->
-    <section id="contact" class="py-20 px-6 max-w-6xl mx-auto border-t border-red-950/80">
-        <p class="text-xs font-mono tracking-widest text-cyber-red uppercase mb-1">Let's Connect</p>
-        <h2 class="text-4xl font-extrabold text-white mb-10">Get in <span class="text-cyber-red">Touch</span></h2>
+    <!-- 📅 REDESIGNED AGENDA / COMMS SCHEDULE SECTION -->
+    <section id="agenda" class="py-20 px-6 max-w-6xl mx-auto border-t border-red-950/80">
+        <p class="text-xs font-mono tracking-widest text-cyber-red uppercase mb-1">Communication Schedule</p>
+        <h2 class="text-4xl font-extrabold text-white mb-2">Comms Agenda & <span class="text-cyber-red">Availability</span></h2>
+        <p class="text-slate-400 mb-10">Direct communication protocol for recruiters, hiring managers, and security professionals.</p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <a href="mailto:xadrenaline602@gmail.com" class="cyber-card p-6 rounded-2xl border border-red-950 flex items-center gap-4 transition group">
-                <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-cyber-red text-xl group-hover:scale-110 transition">
-                    <i class="fas fa-envelope"></i>
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+            
+            <!-- Agenda Item 1 -->
+            <div class="cyber-card p-6 rounded-2xl border border-red-950">
+                <div class="flex items-center gap-3 mb-4 text-cyber-red font-mono text-xs">
+                    <i class="far fa-clock text-base"></i> SLA RESPONSE TIME
                 </div>
-                <div>
-                    <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">Email</p>
-                    <p class="text-slate-100 font-bold group-hover:text-cyber-red transition">xadrenaline602@gmail.com</p>
-                </div>
-            </a>
-
-            <a href="https://github.com/ReymondDev" target="_blank" class="cyber-card p-6 rounded-2xl border border-red-950 flex items-center gap-4 transition group">
-                <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-cyber-red text-xl group-hover:scale-110 transition">
-                    <i class="fab fa-github"></i>
-                </div>
-                <div>
-                    <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">GitHub</p>
-                    <p class="text-slate-100 font-bold group-hover:text-cyber-red transition">github.com/ReymondDev</p>
-                </div>
-            </a>
-
-            <div class="cyber-card p-6 rounded-2xl border border-red-950 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-cyber-red text-xl">
-                    <i class="fas fa-location-dot"></i>
-                </div>
-                <div>
-                    <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">Location</p>
-                    <p class="text-slate-100 font-bold">United Kingdom (Full Right to Work)</p>
-                </div>
+                <h3 class="text-white font-bold text-lg mb-1">&lt; 12 Hours Response</h3>
+                <p class="text-xs text-slate-400">Monitored inbox for recruitment inquiries and security research discussions.</p>
             </div>
 
-            <div class="cyber-card p-6 rounded-2xl border border-red-950 flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-cyber-red text-xl">
-                    <i class="fas fa-globe"></i>
+            <!-- Agenda Item 2 -->
+            <div class="cyber-card p-6 rounded-2xl border border-red-950">
+                <div class="flex items-center gap-3 mb-4 text-cyber-red font-mono text-xs">
+                    <i class="fas fa-briefcase text-base"></i> TARGET ROLES
                 </div>
-                <div>
-                    <p class="text-xs font-mono text-slate-400 uppercase tracking-wider">Languages</p>
-                    <p class="text-slate-100 font-bold">English · Romanian · Hungarian</p>
+                <h3 class="text-white font-bold text-lg mb-1">UK SOC / GRC / Risk</h3>
+                <p class="text-xs text-slate-400">Tier 1 SOC Analyst, Cyber Risk & Assurance, or GRC Analyst (Hybrid / On-site).</p>
+            </div>
+
+            <!-- Agenda Item 3 -->
+            <div class="cyber-card p-6 rounded-2xl border border-red-950">
+                <div class="flex items-center gap-3 mb-4 text-cyber-red font-mono text-xs">
+                    <i class="fas fa-passport text-base"></i> WORK AUTHORISATION
                 </div>
+                <h3 class="text-white font-bold text-lg mb-1">Full UK Right to Work</h3>
+                <p class="text-xs text-slate-400">No sponsorship required. Trilingual fluency: English, Romanian, Hungarian.</p>
+            </div>
+
+        </div>
+
+        <!-- Direct Contact Action Bar -->
+        <div class="cyber-card p-8 rounded-3xl border border-red-950 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="text-xs font-mono text-cyber-red uppercase tracking-wider">[ACTIVE CHANNEL]</span>
+                <h3 class="text-2xl font-bold text-white">xadrenaline602@gmail.com</h3>
+                <p class="text-xs text-slate-400 mt-1">Based in Peterborough, UK · Available for technical interviews.</p>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <a href="mailto:xadrenaline602@gmail.com" class="px-6 py-3.5 bg-cyber-crimson hover:bg-red-500 text-white font-bold text-sm rounded-xl transition shadow-lg shadow-red-600/30 flex items-center gap-2">
+                    <i class="fas fa-paper-plane"></i> Dispatch Email
+                </a>
+                <a href="https://linkedin.com/in/reymond-guntner-674872204" target="_blank" class="px-6 py-3.5 bg-slate-900 border border-red-950 hover:border-cyber-red text-white font-bold text-sm rounded-xl transition flex items-center gap-2">
+                    <i class="fab fa-linkedin"></i> LinkedIn DM
+                </a>
             </div>
         </div>
     </section>
@@ -360,7 +367,7 @@
         © 2026 <span class="text-cyber-red">Reymond</span> · Cyber Security Analyst & Risk Specialist
     </footer>
 
-    <!-- Animated Matrix Rain & 3D Globe Script -->
+    <!-- Scripts: Matrix + Lock + 3D Globe with Continent Mapping -->
     <script>
         // Matrix Rain Setup
         const canvas = document.getElementById('matrix-canvas');
@@ -417,7 +424,7 @@
             }, 700);
         }
 
-        // 🌐 3D GLOBE THREE.JS RENDERER
+        // 🌐 3D GLOBE WITH CONTINENT DOT MATRIX
         function init3DGlobe() {
             const container = document.getElementById('globe-container');
             if (!container) return;
@@ -430,36 +437,20 @@
             renderer.setSize(container.clientWidth, container.clientHeight);
             container.appendChild(renderer.domElement);
 
-            // Sphere Wireframe
-            const geometry = new THREE.SphereGeometry(70, 36, 36);
+            const globeGroup = new THREE.Group();
+            scene.add(globeGroup);
+
+            // Wireframe Core
+            const geometry = new THREE.SphereGeometry(70, 24, 24);
             const material = new THREE.MeshBasicMaterial({
                 color: 0x2a1218,
                 wireframe: true,
                 transparent: true,
-                opacity: 0.55
+                opacity: 0.25
             });
-            const globe = new THREE.Mesh(geometry, material);
-            scene.add(globe);
+            const wireframeGlobe = new THREE.Mesh(geometry, material);
+            globeGroup.add(wireframeGlobe);
 
-            // Particles Outer Halo
-            const particleGeo = new THREE.BufferGeometry();
-            const particleCount = 200;
-            const posArray = new Float32Array(particleCount * 3);
-
-            for (let i = 0; i < particleCount * 3; i++) {
-                posArray[i] = (Math.random() - 0.5) * 220;
-            }
-            particleGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-            const particleMat = new THREE.PointsMaterial({
-                size: 1.5,
-                color: 0xef4444,
-                transparent: true,
-                opacity: 0.6
-            });
-            const particles = new THREE.Points(particleGeo, particleMat);
-            scene.add(particles);
-
-            // Helper to convert Lat/Long to 3D Coordinates
             function latLongToVector3(lat, lon, radius) {
                 const phi = (90 - lat) * (Math.PI / 180);
                 const theta = (lon + 180) * (Math.PI / 180);
@@ -469,46 +460,82 @@
                 return new THREE.Vector3(x, y, z);
             }
 
-            // Key Operations Nodes (UK, Atlanta HQ, Germany)
-            const nodes = [
-                { name: "Cox UK / Wyton", lat: 52.33, lon: -0.12, color: 0xef4444 }, // UK Node
-                { name: "Atlanta HQ", lat: 33.74, lon: -84.38, color: 0xf43f5e },  // Atlanta
-                { name: "Germany Node", lat: 51.16, lon: 10.45, color: 0xf43f5e }    // Germany
+            // 🗺️ Continent Coordinate Sampling (Generates realistic continent shapes)
+            const continentBounds = [
+                // North America
+                { latMin: 15, latMax: 70, lonMin: -160, lonMax: -50 },
+                // South America
+                { latMin: -55, latMax: 12, lonMin: -80, lonMax: -35 },
+                // Europe
+                { latMin: 35, latMax: 70, lonMin: -10, lonMax: 40 },
+                // Africa
+                { latMin: -35, latMax: 37, lonMin: -18, lonMax: 51 },
+                // Asia
+                { latMin: 10, latMax: 75, lonMin: 40, lonMax: 150 },
+                // Australia
+                { latMin: -42, latMax: -10, lonMin: 110, lonMax: 155 }
             ];
 
-            const nodeGroup = new THREE.Group();
+            const dotsGeo = new THREE.BufferGeometry();
+            const dotPositions = [];
+
+            continentBounds.forEach(b => {
+                for (let lat = b.latMin; lat <= b.latMax; lat += 3.5) {
+                    for (let lon = b.lonMin; lon <= b.lonMax; lon += 3.5) {
+                        // Randomize slightly for dot matrix texture
+                        if (Math.random() > 0.35) {
+                            const pos = latLongToVector3(lat, lon, 70.5);
+                            dotPositions.push(pos.x, pos.y, pos.z);
+                        }
+                    }
+                }
+            });
+
+            dotsGeo.setAttribute('position', new THREE.Float32BufferAttribute(dotPositions, 3));
+            const dotsMat = new THREE.PointsMaterial({
+                color: 0xdc2626,
+                size: 1.2,
+                transparent: true,
+                opacity: 0.75
+            });
+            const continentDots = new THREE.Points(dotsGeo, dotsMat);
+            globeGroup.add(continentDots);
+
+            // Key Operational Nodes
+            const nodes = [
+                { name: "Cox UK Node", lat: 52.33, lon: -0.12, color: 0xef4444 },
+                { name: "Atlanta HQ", lat: 33.74, lon: -84.38, color: 0xf43f5e },
+                { name: "Germany Hub", lat: 51.16, lon: 10.45, color: 0xf43f5e }
+            ];
+
             nodes.forEach(node => {
-                const pos = latLongToVector3(node.lat, node.lon, 70);
-                const dotGeo = new THREE.SphereGeometry(2, 16, 16);
+                const pos = latLongToVector3(node.lat, node.lon, 71);
+                const dotGeo = new THREE.SphereGeometry(2.5, 16, 16);
                 const dotMat = new THREE.MeshBasicMaterial({ color: node.color });
                 const dot = new THREE.Mesh(dotGeo, dotMat);
                 dot.position.copy(pos);
-                nodeGroup.add(dot);
+                globeGroup.add(dot);
             });
-            globe.add(nodeGroup);
 
-            // Connecting Glowing Arc (UK -> Atlanta)
-            const start = latLongToVector3(52.33, -0.12, 70);
-            const end = latLongToVector3(33.74, -84.38, 70);
+            // Arc Line (UK -> Atlanta HQ)
+            const start = latLongToVector3(52.33, -0.12, 71);
+            const end = latLongToVector3(33.74, -84.38, 71);
             const mid = start.clone().add(end).multiplyScalar(0.5).normalize().multiplyScalar(95);
 
             const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
             const points = curve.getPoints(50);
             const arcGeo = new THREE.BufferGeometry().setFromPoints(points);
-            const arcMat = new THREE.LineBasicMaterial({ color: 0xef4444, linewidth: 2, transparent: true, opacity: 0.8 });
+            const arcMat = new THREE.LineBasicMaterial({ color: 0xef4444, linewidth: 2, transparent: true, opacity: 0.85 });
             const arcLine = new THREE.Line(arcGeo, arcMat);
-            globe.add(arcLine);
+            globeGroup.add(arcLine);
 
-            // Animation Loop
             function animateGlobe() {
                 requestAnimationFrame(animateGlobe);
-                globe.rotation.y += 0.003;
-                particles.rotation.y += 0.001;
+                globeGroup.rotation.y += 0.003;
                 renderer.render(scene, camera);
             }
             animateGlobe();
 
-            // Resize listener for container
             window.addEventListener('resize', () => {
                 if (!container) return;
                 camera.aspect = container.clientWidth / container.clientHeight;
